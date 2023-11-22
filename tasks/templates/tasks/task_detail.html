@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %}Tarea: {{ task.title }}{% endblock %}
+{% block content %}
+  {% include "tasks/include/top_menu.html" %}
+  <main role="main">
+    <div class="container mt-4">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="card-title">{{ task.title }}</h2>
+              <p class="card-text">{{ task.descriptions }}</p>
+              <div class="text-right">
+                <a class="btn btn-secondary" href="{% url 'tasks'  %}">Atrás</a>
+                {% if request.user.is_staff %}
+                <a class="btn btn-primary" href="{% url 'update' task.id %}">Editar</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+{% endblock %}

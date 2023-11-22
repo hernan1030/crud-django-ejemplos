@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}Tareas{% endblock %}
+{% block content %}
+  {% include "tasks/include/top_menu.html" %}
+  <main role="main">
+    <div class="container mt-4">
+      {% for p in task_list %}
+        <div class="row mb-3">
+          <div class="col-md-9 mx-auto">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">{{ p.title }}</h2>
+                <p class="card-text">{{ p.descriptions|striptags|truncatechars:"200" }}</p>
+                <p class="card-text">
+                  {% if p.status == 'pendiente' %}
+                    <span class="text-warning">Estado: Pendiente</span>
+                  {% elif p.status == 'en_progreso' %}
+                    <span class="text-info">Estado: En Progreso</span>
+                  {% elif p.status == 'completada' %}
+                    <span class="text-success">Estado: Completada</span>
+                  {% else %}
+                    <span>Estado: Desconocido</span>
+                  {% endif %}
+                </p>
+                <p class="card-text">Fecha de vencimiento: {{ p.due_data|date:"F, d - Y" }}</p>
+                <div class="text-center">
+                  <a class="btn btn-primary mr-2" href="{% url 'detail' p.id %}">Leer más</a>
+                  {% if request.user.is_staff %}
+                  <a class="btn btn-warning mr-2" href="{% url 'update' p.id %}">Editar</a>
+                  <a class="btn btn-danger" href="{% url 'delete' p.id %}">Borrar</a>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "core/base.html" %}
+
+{% block title %} Home{% endblock %}
+
+{% block content %}
+<div style="margin: 20px;">
+ 
+   <h2>Instrucciones:</h2>
+
+   <h3>Contexto:</h3>
+   <p>Estás desarrollando una aplicación web de gestión de tareas llamada "TaskMaster". La aplicación permite a los usuarios registrados crear, ver, actualizar y eliminar tareas. Cada tarea tiene un título, una descripción, una fecha de vencimiento y un estado (pendiente, en progreso, completada).</p>
+
+   <h3>Requisitos:</h3>
+
+   <ol>
+      <li>Configura un proyecto Django llamado "TaskMaster" y una aplicación llamada "tasks".</li>
+      <li>Define un modelo de Django llamado Task con los siguientes campos:
+         <ul>
+            <li>title (CharField): El título de la tarea.</li>
+            <li>description (TextField): La descripción de la tarea.</li>
+            <li>due_date (DateField): La fecha de vencimiento de la tarea.</li>
+            <li>status (ChoiceField): El estado de la tarea (pendiente, en progreso, completada).</li>
+         </ul>
+      </li>
+      <li>Crea una vista que liste todas las tareas en una página HTML. Las tareas deben ordenarse por fecha de vencimiento. Asegúrate de que la vista también muestre el estado de cada tarea.</li>
+      <li>Implementa una vista de detalle que muestre la información completa de una tarea en una página HTML.</li>
+      <li>Crea un formulario de Django para agregar nuevas tareas. El formulario debe incluir campos para el título, la descripción, la fecha de vencimiento y el estado de la tarea.</li>
+      <li>Implementa una vista que permita a los usuarios agregar nuevas tareas utilizando el formulario.</li>
+      <li>Implementa una vista que permita a los usuarios editar una tarea existente. Asegúrate de que los usuarios puedan cambiar el título, la descripción, la fecha de vencimiento y el estado de la tarea.</li>
+      <li>Implementa una vista que permita a los usuarios eliminar una tarea.</li>
+      <li>Agrega autenticación de usuario utilizando el sistema de autenticación de Django. Los usuarios deben poder registrarse, iniciar sesión y cerrar sesión.</li>
+      <li>Asegúrate de que las vistas estén protegidas, de modo que solo los usuarios autenticados puedan agregar, editar o eliminar tareas.</li>
+      <li>Escribe pruebas unitarias para las vistas y modelos de la aplicación.</li>
+      <li>Documenta brevemente cómo se ejecutan las pruebas unitarias y cómo se puede iniciar el servidor de desarrollo de Django.</li>
+   </ol>
+
+   <h3>Entrega:</h3>
+   <p>Envía el proyecto Django completo, incluyendo el código fuente y las pruebas unitarias, junto con las instrucciones para ejecutar las pruebas y el servidor de desarrollo.</p>
+</div>
+{% endblock %}
